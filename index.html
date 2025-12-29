@@ -1,0 +1,976 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>North Pole Holidays</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        background: #f5f7fa;
+        color: #333;
+    }
+
+    header {
+        background: linear-gradient(135deg, #003366, #005599);
+        padding: 25px 15px;
+        color: white;
+        text-align: center;
+        box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+    }
+
+    header h1 {
+        margin: 0;
+        font-size: 26px;
+        font-weight: bold;
+        letter-spacing: 1px;
+    }
+
+    header p {
+        margin-top: 6px;
+        font-size: 14px;
+        opacity: 0.9;
+    }
+
+    .container {
+        padding: 15px;
+    }
+
+    .card {
+        background: white;
+        border-radius: 12px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+        overflow: hidden;
+        margin-bottom: 20px;
+    }
+
+    .card img {
+        width: 100%;
+        height: 180px;
+        object-fit: cover;
+    }
+
+    .card-body {
+        padding: 15px;
+    }
+
+    .card-body h2 {
+        font-size: 20px;
+        margin: 0 0 8px 0;
+        color: #003366;
+    }
+
+    .card-body p {
+        font-size: 14px;
+        line-height: 1.5;
+        margin-bottom: 10px;
+    }
+
+    .prices {
+        background: #eef4ff;
+        padding: 10px;
+        border-radius: 8px;
+        margin-top: 10px;
+    }
+
+    .btn-group {
+        margin-top: 15px;
+        display: flex;
+        gap: 10px;
+    }
+
+    .btn {
+        flex: 1;
+        padding: 10px;
+        text-align: center;
+        background: #005599;
+        color: white;
+        text-decoration: none;
+        border-radius: 6px;
+        font-size: 14px;
+        box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+    }
+
+    .btn.details {
+        background: #0088cc;
+    }
+
+    /* Popup */
+    .popup {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0,0,0,0.6);
+        display: none;
+        justify-content: center;
+        align-items: center;
+        padding: 15px;
+        z-index: 1000;
+    }
+
+    .popup-content {
+        background: white;
+        max-width: 420px;
+        width: 100%;
+        padding: 18px;
+        border-radius: 12px;
+        max-height: 95vh;
+        overflow-y: auto;
+    }
+
+    .popup img {
+        width: 100%;
+        border-radius: 10px;
+        margin-bottom: 10px;
+    }
+
+    .close-btn {
+        background: #cc0000;
+        color: #fff;
+        padding: 8px 12px;
+        float: right;
+        border-radius: 6px;
+        text-decoration: none;
+        font-size: 14px;
+    }
+
+    .sub-popup-btn {
+        display: inline-block;
+        background: #0066aa;
+        color: #fff;
+        padding: 8px 12px;
+        margin: 10px 0;
+        border-radius: 6px;
+        text-decoration: none;
+        font-size: 14px;
+    }
+
+</style>
+
+    <!-- GOOGLE TRANSLATE -->
+<meta name="google" content="notranslate">
+<style>
+    .goog-logo-link, .goog-te-gadget span, .goog-te-banner-frame {
+        display: none !important;
+    }
+    .goog-te-gadget {
+        color: transparent !important;
+        font-size: 0px;
+    }
+    #google_translate_element select {
+        padding: 6px 10px;
+        border-radius: 6px;
+        border: 1px solid #ccc;
+        font-size: 14px;
+        background: #fff;
+    }
+</style>
+
+<script type="text/javascript">
+function googleTranslateElementInit() {
+    new google.translate.TranslateElement({
+        pageLanguage: 'en',
+        includedLanguages: 'en,hi,te,ta,ml,kn,gu,pa,bn,ma',
+        layout: google.translate.TranslateElement.InlineLayout.HORIZONTAL
+    }, 'google_translate_element');
+}
+</script>
+
+<script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+</head>
+<body>
+
+<header>
+    <h1>Bhaskar Holidays</h1>
+    <p>Call 9154095125</p>
+
+    <!-- LANGUAGE SELECT BUTTON -->
+    <div style="margin-top: 12px;">
+        <div id="google_translate_element"></div>
+    </div>
+</header>
+
+
+<div class="container">
+
+    <!-- TOUR 01 CARD -->
+    <div class="card">
+        <img src="images/golden1.jpg" alt="Golden Temple Tour" />
+        <div class="card-body">
+            <h2>OUTSTATION TEMPLE & HOLIDAY TOURS PACKAGES</h2>
+            <p>Our Outstation tour trips include sightseeing, temples & heritage places from Tirupati.</p>
+
+            <div class="prices">
+                <strong>Package Code:</strong> TOUR01<br>
+                4 Seater: Rs. 12,000/-<br>
+                6 Seater: Rs. 17,000/-
+            </div>
+
+            <div class="btn-group">
+                <a href="https://wa.me/9154095125" class="btn">Send Enquiry</a>
+                <a onclick="openPopup()" class="btn details">View Details</a>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+        <!-- TOUR 02 CARD -->
+    <div class="card">
+        <img src="images/kanipakam2.jpg" alt="Kanipakam Tour" />
+        <div class="card-body">
+            <h2>Kanipakam - Golden Temple - Kanchipuram - Kalahasti (2D/1N)</h2>
+            <p>Perfect 2-day devotional tour covering major temples & heritage places.</p>
+
+            <div class="prices">
+                <strong>Package Code:</strong> TOUR02<br>
+                4 Seater: Rs. 11,000/-<br>
+                6 Seater: Rs. 16,000/-
+            </div>
+
+            <div class="btn-group">
+                <a href="https://wa.me/9154095125" class="btn">Send Enquiry</a>
+                <a onclick="openPopup2()" class="btn details">View Details</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- TOUR 03 CARD -->
+<div class="card">
+    <img src="images/mahabalipuram3.jpg" alt="Mahabalipuram - Kanchipuram Tour" />
+    <div class="card-body">
+        <h2>Mahabalipuram - Kanchipuram (2D/1N)</h2>
+        <p>Perfect 2-day devotional tour covering Mahabalipuram & Kancheepuram temples and heritage spots.</p>
+
+        <div class="prices">
+            <strong>Package Code:</strong> TOUR03<br>
+            4 Seater: Rs. 11,000/-<br>
+            6 Seater: Rs. 16,000/-
+        </div>
+
+        <div class="btn-group">
+            <a href="https://wa.me/9154095125" class="btn" target="_blank">Send Enquiry</a>
+            <a onclick="openPopup3()" class="btn details">View Details</a>
+        </div>
+    </div>
+</div>
+
+    <!-- TOUR 04 CARD -->
+<div class="card">
+    <img src="images/kani_golfen4.jpg" alt="Tour 04 – 3 Days Package" />
+    <div class="card-body">
+        <h2>Kanipakam - Golden Temple - Tiruvannamalai - Mahabalipuram - Kanchipuram - Tirutani (3D/2N)</h2>
+
+        <p>Beautiful 3-day devotional tour covering major temples and heritage places.</p>
+
+        <div class="prices">
+            <strong>Package Code:</strong> TOUR04<br>
+            4 Seater: Rs. 17,000/-<br>
+            6 Seater: Rs. 24,000/-
+        </div>
+
+        <div class="btn-group">
+            <a href="https://wa.me/9154095125" class="btn" target="_blank">Send Enquiry</a>
+            <a onclick="openPopup4()" class="btn details">View Details</a>
+        </div>
+    </div>
+</div>
+
+    <!-- TOUR 05 CARD -->
+<div class="card">
+    <img src="images/Kalahasti5.jpg" alt="Tour 05 – 3 Days Package" />
+    <div class="card-body">
+        <h2>Kalahasti – Kanipakam – Golden Temple – Tiruvannamalai – Pondicherry (3D/2N)</h2>
+
+        <p>A peaceful devotional & coastal trip covering Tamil Nadu’s heritage and beach city.</p>
+
+        <div class="prices">
+            <strong>Package Code:</strong> TOUR05<br>
+            4 Seater: Rs. 17,000/-<br>
+            6 Seater: Rs. 23,000/-
+        </div>
+
+        <div class="btn-group">
+            <a href="https://wa.me/9154095125" class="btn" target="_blank">Send Enquiry</a>
+            <a onclick="openPopup5()" class="btn details">View Details</a>
+        </div>
+    </div>
+</div>
+
+    <!-- TOUR 06 CARD -->
+<div class="card">
+    <img src="images/kani6.jpg" alt="Tour 06 – 3 Days Package" />
+    <div class="card-body">
+        <h2>Kanipakam – Golden Temple – Sripuram – Vellore Fort – Tiruvannamalai – Pondicherry (3D/2N)</h2>
+
+        <p>Devotional & heritage trip with peaceful beach sightseeing in Pondicherry.</p>
+
+        <div class="prices">
+            <strong>Package Code:</strong> TOUR06<br>
+            4 Seater: Rs. 18,500/-<br>
+            6 Seater: Rs. 24,500/-
+        </div>
+
+        <div class="btn-group">
+            <a href="https://wa.me/9154095125" class="btn" target="_blank">Send Enquiry</a>
+            <a onclick="openPopup6()" class="btn details">View Details</a>
+        </div>
+    </div>
+</div>
+
+<!-- TOUR 07 CARD -->
+<div class="card">
+    <img src="images/zoopark7.jpg" alt="Tour 07 – 2 Days Package" />
+    <div class="card-body">
+        <h2>Kanchipuram – Tiruvannamalai – Pondicherry (2D/1N)</h2>
+
+        <p>A perfect combination of heritage temples and beautiful beach city.</p>
+
+        <div class="prices">
+            <strong>Package Code:</strong> TOUR07<br>
+            4 Seater: Rs. 12,000/-<br>
+            6 Seater: Rs. 17,000/-
+        </div>
+
+        <div class="btn-group">
+            <a href="https://wa.me/9154095125" class="btn" target="_blank">Send Enquiry</a>
+            <a onclick="openPopup7()" class="btn details">View Details</a>
+        </div>
+    </div>
+</div>
+
+    <!-- TOUR 08 CARD -->
+<div class="card">
+    <img src="images/talakona8.jpg" alt="Tour 08 – 2 Days Package" />
+    <div class="card-body">
+        <h2>Tiruvannamalai – Pondicherry – Mahabalipuram (2D/1N)</h2>
+
+        <p>A devotional + beach + UNESCO heritage circuit starting from Tirupati.</p>
+
+        <div class="prices">
+            <strong>Package Code:</strong> TOUR08<br>
+            4 Seater: Rs. 13,000/-<br>
+            6 Seater: Rs. 18,000/-
+        </div>
+
+        <div class="btn-group">
+            <a href="https://wa.me/9154095125" class="btn" target="_blank">Send Enquiry</a>
+            <a onclick="openPopup8()" class="btn details">View Details</a>
+        </div>
+    </div>
+</div>
+
+
+<!-- MAIN POPUP -->
+<div id="popup" class="popup">
+    <div class="popup-content">
+        <a class="close-btn" onclick="closePopup()">Close</a>
+        <h2>Package Details</h2>
+        <img src="images/golden1.jpg">
+
+        <p><strong>Note:</strong> Deluxe, Luxury and 3/4 star accommodation available on request.</p>
+
+        <p>This package can be customised based on your arrival and departure timings.</p>
+
+        <h3>Itinerary</h3>
+        <p><strong>Day 1:</strong> Srinivasa Managpuram, Kanipakam, Golden Temple, Tiruvannamalai</p>
+        <p><strong>Day 2:</strong> Kancheepuram, Tiruttani</p>
+
+        <a class="sub-popup-btn" onclick="openSubPopup()">Day 1 & Day 2 Full Details</a>
+
+        <h3>Places of Visit</h3>
+        <p>Srinivasa Mangapuram, Chandragiri Fort, Kanipakam Ganesh Temple, Golden Temple, Tiruvannamalai, Kancheepuram Temples, Tiruttani</p>
+
+        <h3>Inclusions</h3>
+        <p>Car Rent, Toll Gates, Parking, State Tax, Driver Allowance & Fuel Charges.</p>
+
+        <h3>Exclusions</h3>
+        <p>Temple Tickets, Accommodation, Food. Driver Food Rs.200 paid by customer.</p>
+
+        <h3>Terms & Conditions</h3>
+        <p>
+            1. Do not keep valuables inside the car.<br>
+            2. Package cost is without GST.<br>
+            3. No darshan tickets provided. Book from TTD website.
+        </p>
+    </div>
+</div>
+<!-- REPLACE YOUR OLD SCRIPT WITH THIS (place before </body>) -->
+<script>
+/* MAIN POPUP FUNCTIONS (TOUR 01) */
+function openPopup() {
+    document.getElementById('popup').style.display = 'flex';
+}
+function closePopup() {
+    document.getElementById('popup').style.display = 'none';
+}
+function openSubPopup() {
+    document.getElementById('subPopup').style.display = 'flex';
+}
+function closeSubPopup() {
+    document.getElementById('subPopup').style.display = 'none';
+}
+
+/* TOUR 02 */
+function openPopup2() {
+    document.getElementById('popup2').style.display = 'flex';
+}
+function closePopup2() {
+    document.getElementById('popup2').style.display = 'none';
+}
+function openSubPopup2() {
+    document.getElementById('subPopup2').style.display = 'flex';
+}
+function closeSubPopup2() {
+    document.getElementById('subPopup2').style.display = 'none';
+}
+
+/* TOUR 03 */
+function openPopup3() {
+    document.getElementById('popup3').style.display = 'flex';
+}
+function closePopup3() {
+    document.getElementById('popup3').style.display = 'none';
+}
+function openSubPopup3() {
+    document.getElementById('subPopup3').style.display = 'flex';
+}
+function closeSubPopup3() {
+    document.getElementById('subPopup3').style.display = 'none';
+}
+
+/* TOUR 04 */
+function openPopup4() {
+    document.getElementById('popup4').style.display = 'flex';
+}
+function closePopup4() {
+    document.getElementById('popup4').style.display = 'none';
+}
+function openSubPopup4() {
+    document.getElementById('subPopup4').style.display = 'flex';
+}
+function closeSubPopup4() {
+    document.getElementById('subPopup4').style.display = 'none';
+}
+
+/* OPTIONAL: close popup when user clicks outside content or presses Esc */
+document.addEventListener('click', function(e) {
+    // if clicked on overlay (class "popup") hide it
+    if (e.target && e.target.classList && e.target.classList.contains('popup')) {
+        e.target.style.display = 'none';
+    }
+});
+document.addEventListener('keydown', function(e) {
+    if (e.key === "Escape") {
+        var popups = document.querySelectorAll('.popup');
+        popups.forEach(function(p){ p.style.display = 'none'; });
+    }
+});
+    /* TOUR 05 */
+function openPopup5() {
+    document.getElementById('popup5').style.display = 'flex';
+}
+function closePopup5() {
+    document.getElementById('popup5').style.display = 'none';
+}
+function openSubPopup5() {
+    document.getElementById('subPopup5').style.display = 'flex';
+}
+function closeSubPopup5() {
+    document.getElementById('subPopup5').style.display = 'none';
+}
+/* TOUR 06 */
+function openPopup6() {
+    document.getElementById('popup6').style.display = 'flex';
+}
+function closePopup6() {
+    document.getElementById('popup6').style.display = 'none';
+}
+function openSubPopup6() {
+    document.getElementById('subPopup6').style.display = 'flex';
+}
+function closeSubPopup6() {
+    document.getElementById('subPopup6').style.display = 'none';
+}
+    /* TOUR 07 */
+function openPopup7() {
+    document.getElementById('popup7').style.display = 'flex';
+}
+function closePopup7() {
+    document.getElementById('popup7').style.display = 'none';
+}
+function openSubPopup7() {
+    document.getElementById('subPopup7').style.display = 'flex';
+}
+function closeSubPopup7() {
+    document.getElementById('subPopup7').style.display = 'none';
+}
+/* TOUR 08 */
+function openPopup8() {
+    document.getElementById('popup8').style.display = 'flex';
+}
+function closePopup8() {
+    document.getElementById('popup8').style.display = 'none';
+}
+function openSubPopup8() {
+    document.getElementById('subPopup8').style.display = 'flex';
+}
+function closeSubPopup8() {
+    document.getElementById('subPopup8').style.display = 'none';
+}
+
+</script>
+
+<!-- SUB POPUP -->
+<div id="subPopup" class="popup">
+    <div class="popup-content">
+        <a class="close-btn" onclick="closeSubPopup()">Close</a>
+        <h2>Day-wise Full Details</h2>
+
+        <h3>Day 1</h3>
+        <p>Pickup at Tirupati → Srinivasa Managapuram darshan → Kanipakam Vinayaka Swamy → Siripuram Golden Temple darshan → Tiruvannamalai Arunachaleswarar Temple → Night stay.</p>
+
+        <h3>Day 2</h3>
+        <p>Kancheepuram temple visits → Ekambareswarar, Kailasanathar, Varadaraja Perumal, Kamakshi Amman → Tiruttani Murugan → Return to Tirupati.</p>
+    </div>
+</div
+
+    <!-- TOUR 02 MAIN POPUP -->
+<div id="popup2" class="popup">
+    <div class="popup-content">
+        <a class="close-btn" onclick="closePopup2()">Close</a>
+
+        <h2>Package Details – TOUR02</h2>
+        <img src="images/kanipakam2.jpg">
+
+        <p><strong>Note:</strong> Deluxe, Luxury and 3/4 star accommodation available on request.</p>
+        <p>This package can be customised based on your arrival and departure timings.</p>
+
+        <h3>Itinerary</h3>
+        <p><strong>Day 1:</strong> Srinivasa Mangapuram, Chandragiri Fort, Kanipakam, Vellore Fort, Golden Temple</p>
+        <p><strong>Day 2:</strong> Kancheepuram, Tirutani, Sri Kalahasti</p>
+
+        <a class="sub-popup-btn" onclick="openSubPopup2()">Day-wise Full Details</a>
+
+        <h3>Places of Visit</h3>
+        <p>
+            Srinivasa Mangapuram, Chandragiri Fort, Kanipakam Ganesh Temple, Golden Temple,
+            Vellore Fort, Kancheepuram (Ekambareswarar, Kailasanathar, Varadaraja Perumal, Kamakshi Amman),
+            Tiruttani Murugan Temple, Kalahasti Shiva Temple.
+        </p>
+
+        <h3>Inclusions</h3>
+        <p>Car Rent, Toll Gates, Parking Charges, State Tax, Driver Allowance & Fuel Charges.</p>
+
+        <h3>Exclusions</h3>
+        <p>Temple Tickets, Accommodation, Food. Driver food Rs.200 paid by customer.</p>
+
+        <h3>Terms & Conditions</h3>
+        <p>
+            1. Do not keep valuables inside car.<br>
+            2. Package cost is without GST.<br>
+            3. No darshan tickets provided. Book from TTD.
+        </p>
+    </div>
+</div>
+
+    <!-- TOUR 02 SUB POPUP -->
+<div id="subPopup2" class="popup">
+    <div class="popup-content">
+        <a class="close-btn" onclick="closeSubPopup2()">Close</a>
+
+        <h2>Day-wise Full Details – TOUR02</h2>
+
+        <h3>Day 1</h3>
+        <p>
+            Pickup at Tirupati → Srinivasa Mangapuram darshan → Chandragiri Fort →
+            Kanipakam Vinayaka Swamy → Vellore Fort → Golden Temple darshan →
+            Night stay at Vellore.
+        </p>
+
+        <h3>Day 2</h3>
+        <p>
+            Kancheepuram temples (Ekambareswarar, Kailasanathar, Varadaraja Perumal, Kamakshi Amman) →
+            Tiruttani Murugan → Sri Kalahasti Shiva Temple →
+            Return to Tirupati.
+        </p>
+    </div>
+</div>
+
+
+    <!-- TOUR 03 MAIN POPUP -->
+<div id="popup3" class="popup">
+    <div class="popup-content">
+        <a class="close-btn" onclick="closePopup3()">Close</a>
+        <h2>Package Details – TOUR03</h2>
+        <img src="images/mahabalipuram3.jpg" alt="Mahabalipuram - Kanchipuram">
+
+        <p><strong>Note:</strong> Deluxe, Luxury and 3/4 star accommodation available on request.</p>
+        <p>This package can be customised based on your arrival and departure timings.</p>
+
+        <h3>Itinerary</h3>
+        <p><strong>Day 1:</strong> Tirutani, Kancheepuram</p>
+        <p><strong>Day 2:</strong> Mahabalipuram</p>
+
+        <a class="sub-popup-btn" onclick="openSubPopup3()">Day 1 & Day 2 Full Details</a>
+
+        <h3>Places of Visit</h3>
+        <p>
+            Srinivasa Mangapuram, Chandragiri Fort, Kanipakam, Golden Temple, Tiruvannamalai (Arunachalam),
+            Mahabalipuram (Arjuna's Penance, Five Rathas, Shore Temple, Tiger Cave, Krishna's Butter Ball),
+            Kancheepuram (Ekambareswarar, Kailasanathar, Varadaraja Perumal, Kamakshi Amman)
+        </p>
+
+        <h3>Inclusions</h3>
+        <p>Car Rent, Toll Gates, Parking Charges, State Tax, Driver Allowance & Fuel Charges.</p>
+
+        <h3>Exclusions</h3>
+        <p>Temple Tickets, Accommodation, Food. Driver Food Rs.200 paid by customer.</p>
+
+        <h3>Terms & Conditions</h3>
+        <p>
+            1. Do not keep valuables inside the car.<br>
+            2. Package cost is without GST.<br>
+            3. Darshan tickets must be booked separately on TTD website.
+        </p>
+
+        <div style="margin-top:12px;">
+            <a class="sub-popup-btn" href="https://wa.me/919030483891" target="_blank">Send Enquiry via WhatsApp</a>
+            <p style="margin-top:8px;">Taxi in Tirupati Car Rentals: +91 9030483891 &nbsp; | &nbsp; +91 8801469555</p>
+        </div>
+    </div>
+</div>
+
+<!-- TOUR 03 SUB POPUP -->
+<div id="subPopup3" class="popup">
+    <div class="popup-content">
+        <a class="close-btn" onclick="closeSubPopup3()">Close</a>
+        <h2>Day-wise Full Details – TOUR03</h2>
+
+        <h3>Day 1</h3>
+        <p>
+            Pickup at Tirupati → Srinivasa Mangapuram darshan → Chandragiri Fort visit →
+            Kanipakam Vinayaka Swamy → Visit Golden Temple / Srinivasa Mangapuram areas →
+            Tiruvannamalai (Arunachaleswarar) → Night stay.
+        </p>
+
+        <h3>Day 2</h3>
+        <p>
+            Mahabalipuram sightseeing (Arjuna's Penance, Five Rathas, Shore Temple, Tiger Cave, Krishna's Butter Ball)
+            → Kancheepuram temple visits (Ekambareswarar, Kailasanathar, Varadaraja Perumal, Kamakshi Amman)
+            → Return to Tirupati.
+        </p>
+    </div>
+</div>
+
+    <!-- TOUR 04 MAIN POPUP -->
+<div id="popup4" class="popup">
+    <div class="popup-content">
+        <a class="close-btn" onclick="closePopup4()">Close</a>
+
+        <h2>Package Details – TOUR04</h2>
+        <img src="images/golfen4.jpg" alt="Tour 04">
+
+        <p><strong>Note:</strong> Deluxe, Luxury and 3/4 star accommodation available on request.</p>
+        <p>This package can be customised based on your arrival and departure timings.</p>
+
+        <h3>Itinerary</h3>
+        <p><strong>Day 1:</strong> Srinivasa Mangapuram, Chandragiri Fort, Kanipakam, Golden Temple, Tiruvannamalai</p>
+        <p><strong>Day 2:</strong> Mahabalipuram Sightseeing</p>
+        <p><strong>Day 3:</strong> Kancheepuram, Tirutani</p>
+
+        <a class="sub-popup-btn" onclick="openSubPopup4()">Day 1, Day 2 & Day 3 Details</a>
+
+        <h3>Places of Visit</h3>
+        <p>
+            Srinivasa Mangapuram, Chandragiri Fort, Kanipakam, Golden Temple, Tiruvannamalai (Arunachalam),
+            Tirutani, Mahabalipuram (Arjuna's Penance, Five Rathas, Shore Temple, Tiger Cave, Krishna's Butter Ball),
+            Kanchipuram (Ekambareswarar, Kailasanathar, Varadaraja Perumal, Kamakshi Amman).
+        </p>
+
+        <h3>Inclusions</h3>
+        <p>Car Rent, Toll Gates, Parking Charges, State Tax, Driver Allowance & Fuel Charges.</p>
+
+        <h3>Exclusions</h3>
+        <p>Temple Tickets, Accommodation, Food. Driver Food Rs.200 paid by customer.</p>
+
+        <h3>Terms & Conditions</h3>
+        <p>
+            1. Don’t keep valuables inside the car.<br>
+            2. Package cost is without GST.<br>
+            3. Darshan tickets must be booked separately on the TTD website.
+        </p>
+
+        <div style="margin-top:12px;">
+            <a class="sub-popup-btn" href="https://wa.me/919030483891" target="_blank">Send Enquiry via WhatsApp</a>
+            <p style="margin-top:8px;">Taxi in Tirupati Car Rentals: +91 9030483891 | +91 8801469555</p>
+        </div>
+    </div>
+</div>
+
+
+<!-- TOUR 04 SUB POPUP -->
+<div id="subPopup4" class="popup">
+    <div class="popup-content">
+        <a class="close-btn" onclick="closeSubPopup4()">Close</a>
+        <h2>Day-wise Itinerary – TOUR04</h2>
+
+        <h3>Day 1</h3>
+        <p>
+            Tirupati pickup → Srinivasa Mangapuram darshan → Chandragiri Fort →
+            Kanipakam Vinayaka Swamy → Golden Temple (Siripuram) →
+            Tiruvannamalai Arunachaleswarar Temple → Night stay.
+        </p>
+
+        <h3>Day 2</h3>
+        <p>
+            Mahabalipuram sightseeing: Arjuna's Penance, Five Rathas, Shore Temple,
+            Tiger Cave, Krishna’s Butter Ball → Night stay at Mahabalipuram or Kancheepuram.
+        </p>
+
+        <h3>Day 3</h3>
+        <p>
+            Kancheepuram temples (Ekambareswarar, Kailasanathar, Varadaraja Perumal,
+            Kamakshi Amman) → Tirutani Murugan Temple → Return to Tirupati.
+        </p>
+    </div>
+</div>
+
+    <!-- TOUR 05 MAIN POPUP -->
+<div id="popup5" class="popup">
+    <div class="popup-content">
+        <a class="close-btn" onclick="closePopup5()">Close</a>
+
+        <h2>Package Details – TOUR05</h2>
+        <img src="images/golden5.jpg" alt="Tour 05">
+
+        <p><strong>Note:</strong> Deluxe / Luxury / AC Rooms available on request.</p>
+        <p>Package can be customised as per your arrival or departure timings.</p>
+
+        <h3>Itinerary</h3>
+        <p><strong>Day 1:</strong> Kalahasti, Kanipakam & Golden Temple → Night Stay</p>
+        <p><strong>Day 2:</strong> Tiruvannamalai → Pondicherry Beach → Night Stay at Pondicherry</p>
+        <p><strong>Day 3:</strong> Pondicherry sightseeing → Return to Tirupati</p>
+
+        <a class="sub-popup-btn" onclick="openSubPopup5()">View Day 1, Day 2 & Day 3 Details</a>
+
+        <h3>Places of Visit</h3>
+        <p>
+            Sri Kalahasti Temple, Kanipakam Vinayaka Temple, Golden Temple (Siripuram),
+            Tiruvannamalai Arunachalam Temple, Pondicherry Beach, Promenade Beach,
+            Manakula Vinayagar Temple, Aurobindo Ashram, Auroville (Outer View).
+        </p>
+
+        <h3>Inclusions</h3>
+        <p>Car Rent, Toll Gates, Parking Charges, Driver Allowance, Fuel Charges.</p>
+
+        <h3>Exclusions</h3>
+        <p>Food, Accommodation, Temple Tickets. Driver food Rs.200/day paid by customer.</p>
+
+        <h3>Terms & Conditions</h3>
+        <p>
+            1) Don’t keep valuables inside the car.<br>
+            2) Package cost excludes GST.<br>
+            3) Darshan tickets must be booked separately.
+        </p>
+
+        <div style="margin-top:12px;">
+            <a class="sub-popup-btn" href="https://wa.me/919030483891" target="_blank">
+                Send Enquiry via WhatsApp
+            </a>
+            <p style="margin-top:8px;">Taxi in Tirupati: +91 9030483891 | +91 8801469555</p>
+        </div>
+    </div>
+</div>
+
+<!-- TOUR 05 SUB POPUP -->
+<div id="subPopup5" class="popup">
+    <div class="popup-content">
+        <a class="close-btn" onclick="closeSubPopup5()">Close</a>
+
+        <h2>Day-wise Itinerary – TOUR05</h2>
+
+        <h3>Day 1</h3>
+        <p>
+            Tirupati pickup → Sri Kalahasti Temple Darshan → Kanipakam Sri Vinayaka Temple →
+            Golden Temple Siripuram → Night stay at Vellore / Tiruvannamalai.
+        </p>
+
+        <h3>Day 2</h3>
+        <p>
+            Tiruvannamalai Arunachalam Temple Darshan → Travel to Pondicherry →
+            Promenade Beach & City Sightseeing → Night stay in Pondicherry.
+        </p>
+
+        <h3>Day 3</h3>
+        <p>
+            Pondicherry sightseeing: Aurobindo Ashram, Manakula Vinayagar Temple, Auroville View →
+            Return journey to Tirupati.
+        </p>
+    </div>
+</div>
+    
+<!-- TOUR 06 MAIN POPUP -->
+<div id="popup6" class="popup">
+    <div class="popup-content">
+        <a class="close-btn" onclick="closePopup6()">Close</a>
+
+        <h2>Package Details – TOUR06</h2>
+        <img src="images/golden6.jpg" alt="Tour 06">
+
+        <p><strong>Note:</strong> Rooms (Deluxe, Luxury, AC) available on request.</p>
+        <p>Timings can be customized based on arrival/departure.</p>
+
+        <h3>Itinerary</h3>
+        <p><strong>Day 1:</strong> Kanipakam → Golden Temple → Vellore Fort → Tiruvannamalai</p>
+        <p><strong>Day 2:</strong> Tiruvannamalai → Pondicherry Beach → Night Stay</p>
+        <p><strong>Day 3:</strong> Pondicherry sightseeing → Return to Tirupati</p>
+
+        <a class="sub-popup-btn" onclick="openSubPopup6()">View Day 1, Day 2 & Day 3 Details</a>
+
+        <h3>Places of Visit</h3>
+        <p>
+            Kanipakam Vinayaka Temple, Golden Temple Siripuram, Vellore Fort,
+            Tiruvannamalai Arunachalam Temple, Pondicherry Beach, Auroville, Aurobindo Ashram.
+        </p>
+
+        <h3>Inclusions</h3>
+        <p>Car Charges, Toll, Parking, Driver Allowance, Fuel.</p>
+
+        <h3>Exclusions</h3>
+        <p>Food, Rooms, Temple Tickets. Driver food Rs.200/day.</p>
+
+        <div style="margin-top:12px;">
+            <a class="sub-popup-btn" href="https://wa.me/919030483891" target="_blank">
+                WhatsApp Enquiry
+            </a>
+        </div>
+    </div>
+</div>
+
+<!-- TOUR 06 SUB POPUP -->
+<div id="subPopup6" class="popup">
+    <div class="popup-content">
+        <a class="close-btn" onclick="closeSubPopup6()">Close</a>
+
+        <h2>Day-wise Itinerary – TOUR06</h2>
+
+        <h3>Day 1</h3>
+        <p>
+            Tirupati pickup → Kanipakam Temple → Golden Temple Siripuram →
+            Vellore Fort → Tiruvannamalai Temple → Night Stay.
+        </p>
+
+        <h3>Day 2</h3>
+        <p>
+            Tiruvannamalai → Pondicherry → Promenade Beach → Aurobindo Ashram →
+            Pondicherry Night Stay.
+        </p>
+
+        <h3>Day 3</h3>
+        <p>
+            Pondicherry sightseeing → Auroville (outer view) → Return to Tirupati.
+        </p>
+    </div>
+</div>
+    <!-- TOUR 07 MAIN POPUP -->
+<div id="popup7" class="popup">
+    <div class="popup-content">
+        <a class="close-btn" onclick="closePopup7()">Close</a>
+
+        <h2>Package Details – TOUR07</h2>
+        <img src="images/golden7.jpg" alt="Tour 07">
+
+        <p><strong>Note:</strong> AC / Deluxe / Star Hotel accommodation on request.</p>
+
+        <h3>Itinerary</h3>
+        <p><strong>Day 1:</strong> Kanchipuram temples → Tiruvannamalai → Night stay</p>
+        <p><strong>Day 2:</strong> Pondicherry sightseeing → Return to Tirupati</p>
+
+        <a class="sub-popup-btn" onclick="openSubPopup7()">View Full Day-wise Details</a>
+
+        <h3>Places of Visit</h3>
+        <p>
+            Kanchipuram: Ekambareswarar, Kailasanathar, Kamakshi Amman, Varadaraja Perumal.<br>
+            Tiruvannamalai Arunachaleswarar Temple.<br>
+            Pondicherry: Promenade Beach, Aurobindo Ashram, Manakula Vinayagar Temple, Auroville View.
+        </p>
+    </div>
+</div>
+
+<!-- TOUR 07 SUB POPUP -->
+<div id="subPopup7" class="popup">
+    <div class="popup-content">
+        <a class="close-btn" onclick="closeSubPopup7()">Close</a>
+
+        <h2>Day-wise Itinerary – TOUR07</h2>
+
+        <h3>Day 1</h3>
+        <p>
+            Tirupati → Kanchipuram temples → Lunch → Travel to Tiruvannamalai →
+            Arunachalam temple darshan → Night stay.
+        </p>
+
+        <h3>Day 2</h3>
+        <p>
+            Morning travel to Pondicherry → Aurobindo Ashram → Vinayagar Temple →
+            Auroville (Outer View) → Beach visit → Return to Tirupati.
+        </p>
+    </div>
+</div>
+
+    <!-- TOUR 08 MAIN POPUP -->
+<div id="popup8" class="popup">
+    <div class="popup-content">
+        <a class="close-btn" onclick="closePopup8()">Close</a>
+
+        <h2>Package Details – TOUR08</h2>
+        <img src="images/golden8.jpg" alt="Tour 08">
+
+        <p><strong>Note:</strong> Hotels can be arranged on request.</p>
+
+        <h3>Itinerary</h3>
+        <p><strong>Day 1:</strong> Tiruvannamalai → Pondicherry sightseeing → Night stay</p>
+        <p><strong>Day 2:</strong> Mahabalipuram sightseeing → Return to Tirupati</p>
+
+        <a class="sub-popup-btn" onclick="openSubPopup8()">View Full Day-wise Details</a>
+
+        <h3>Places of Visit</h3>
+        <p>
+            Tiruvannamalai Arunachalam Temple.<br>
+            Pondicherry: Aurobindo Ashram, Auroville, Promenade Beach, Churches.<br>
+            Mahabalipuram: Five Rathas, Arjuna’s Penance, Shore Temple, Tiger Cave, Lighthouse.
+        </p>
+    </div>
+</div>
+
+<!-- TOUR 08 SUB POPUP -->
+<div id="subPopup8" class="popup">
+    <div class="popup-content">
+        <a class="close-btn" onclick="closeSubPopup8()">Close</a>
+
+        <h2>Day-wise Itinerary – TOUR08</h2>
+
+        <h3>Day 1</h3>
+        <p>
+            Tirupati pickup → Tiruvannamalai temple darshan →
+            Travel to Pondicherry → Ashram → Auroville (View) →
+            Beach trip → Night stay at Pondicherry.
+        </p>
+
+        <h3>Day 2</h3>
+        <p>
+            Travel to Mahabalipuram → Five Rathas →
+            Arjuna’s Penance → Shore Temple → Tiger Cave →
+            Return to Tirupati.
+        </p>
+    </div>
+</div>
+
+
+</body>
+</html>
